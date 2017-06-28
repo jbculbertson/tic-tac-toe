@@ -1,4 +1,4 @@
-curl "https://aqueous-atoll-85096.herokuapp.com/$ID" \
+curl "http://tic-tac-toe.wdibos.com/change-password/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
