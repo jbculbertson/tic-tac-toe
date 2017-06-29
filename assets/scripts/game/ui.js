@@ -42,9 +42,7 @@ const createGameFailure = (error) => {
 }
 
 const showGamesSuccess = (data) => {
-//   $('#message-banner').text(data.games.forEach()
-  console.log(data)
-
+  $('#message-banner').text('Total number of games played is: ' + data.games.length)
 }
 const showGamesFailure = (error) => {
   console.error(error)
