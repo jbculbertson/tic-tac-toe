@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -22,7 +23,6 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  console.log(data)
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -31,16 +31,55 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   const data = getFormFields(this)
-  console.log(data)
   event.preventDefault()
   api.signOut(data)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
 
+const onCreateGame = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createGame(data)
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
+const onShowGames = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.showGames(data)
+    .then(ui.showGamesSuccess)
+    .catch(ui.showGamesFailure)
+}
+
+const onShowOneGame = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.showOneGame(data)
+    .then(ui.showOneGameSuccess)
+    .catch(ui.showOneGameFailure)
+}
+
+const onJoinGame = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.joinGame(data)
+    .then(ui.joinGameSuccess)
+    .catch(ui.joinGameFailure)
+}
+
+const updateGame = function (data) {
+  event.preventDefault()
+  api.updateGame(data)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
+}
+
 let gameBoard = []
 let totalMoves = 0
 let winner = ''
+let gameOver = false
 
 const whoseTurn = function (array) {
   if (totalMoves % 2 === 0) {
@@ -60,9 +99,9 @@ const evaluateBoard = function () {
     (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')) {
     winner = 'X'
     $('.box').off()
-    // onClearBoard()
     $('#message-banner').text(winner + ' is the winner!')
     totalMoves = 0
+    gameOver = true
   } else if ((gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O') ||
     (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O') ||
     (gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
@@ -73,37 +112,44 @@ const evaluateBoard = function () {
     (gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O')) {
     winner = 'O'
     $('.box').off()
-    // onClearBoard()
     $('#message-banner').text(winner + ' is the winner!')
     totalMoves = 0
+    gameOver = true
   } else if (totalMoves > 8) {
     $('#message-banner').text('Game ends in a tie!')
+    totalMoves = 0
+    gameOver = true
   } else {
+    $('#message-banner').text('Game is in session!')
   }
 }
 
-// if (gameBoard[this.dataset.id] === '') {
-//   $(this).text(whoseTurn)
-// } else {
-//   console.log('Already played')
-// }
-const onSelectCell = function () {
+const onSelectCell = function (event) {
   $('#message-banner').text('Lets play')
   $(this).text(whoseTurn())
   $(this).off()
-  // console.log(gameBoard[this.dataset.id])
-  // if (gameBoard[this.dataset.id] === undefined || gameBoard[this.dataset.id] !== 'X' || gameBoard[this.dataset.id] !== 'O') {
-  //   $(this).text(whoseTurn)
-  // } else {
-  //   $('.messages').text('Please click a cell that has not already been played')
-  // }
   gameBoard[this.dataset.id] = whoseTurn()
-  totalMoves += 1
   evaluateBoard(gameBoard)
+  const index = this.dataset.id
+  const value = whoseTurn()
+  const isOver = gameOver
+  const data = {
+    "game": {
+      "cell": {
+        "index": index,
+        "value": value
+      },
+      "over": isOver
+    }
+  }
+  updateGame(data)
+  totalMoves += 1
 }
 
 const onClearBoard = function () {
   gameBoard = []
+  totalMoves = 0
+  gameOver = false
   $('#0').on('click', onSelectCell).text('')
   $('#1').on('click', onSelectCell).text('')
   $('#2').on('click', onSelectCell).text('')
@@ -120,6 +166,11 @@ module.exports = {
   onSignIn,
   onChangePassword,
   onSignOut,
+  onCreateGame,
+  onShowGames,
+  onShowOneGame,
   onSelectCell,
-  onClearBoard
+  onClearBoard,
+  onJoinGame,
+  updateGame
 }

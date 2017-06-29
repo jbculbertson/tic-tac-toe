@@ -19,8 +19,9 @@ body {
 }
 
 .gameboard {
-    margin-top: 50px;
-    margin-bottom: 10px;
+  display: none;
+  margin-bottom: 10px;
+  margin-top: 50px;
 }
 
 button {
@@ -33,6 +34,34 @@ form {
 
 input {
   border: 1px solid black;
+}
+
+#sign-out {
+  display: none;
+}
+
+#change-password {
+  display: none;
+}
+
+#create-game {
+  display: none;
+}
+
+#show-games {
+  display: none;
+}
+
+#show-one-game {
+  display: none;
+}
+
+#join-game {
+  display: none;
+}
+
+.clear-board{
+  display: none;
 }
 
 @media (max-width: 400px) {
