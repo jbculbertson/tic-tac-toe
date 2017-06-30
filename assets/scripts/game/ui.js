@@ -39,8 +39,9 @@ const changePasswordFailure = () => {
 const createGameSuccess = (data) => {
   store.game = data.game
   $('#message-banner').text('Let\'s Play!')
-  $('.gameboard').css('display', 'inline')
-  $('.clear-board-button').css('display', 'inline')
+  $('.gameboard').fadeIn(500).css('display', 'inline')
+  $('#clear-board-button').css('display', 'inline')
+  $('#create-game-button').hide()
 }
 const createGameFailure = () => {
 }

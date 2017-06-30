@@ -33,5 +33,5 @@ $(() => {
   $('#6').on('click', gameEvents.onSelectCell)
   $('#7').on('click', gameEvents.onSelectCell)
   $('#8').on('click', gameEvents.onSelectCell)
-  $('#clear-board').on('click', gameEvents.onClearBoard)
+  $('.clear-board').on('click', gameEvents.onClearBoard)
 })

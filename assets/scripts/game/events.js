@@ -125,11 +125,6 @@ const evaluateBoard = function () {
 }
 
 const onSelectCell = function (event) {
-  $('#message-banner').text('Lets play')
-  $(this).text(whoseTurn())
-  $(this).off()
-  gameBoard[this.dataset.id] = whoseTurn()
-  evaluateBoard(gameBoard)
   const index = this.dataset.id
   const value = whoseTurn()
   const isOver = gameOver
@@ -143,7 +138,12 @@ const onSelectCell = function (event) {
     }
   }
   updateGame(data)
+  $('#message-banner').text('Lets play')
+  $(this).text(whoseTurn())
+  $(this).off()
+  gameBoard[this.dataset.id] = whoseTurn()
   totalMoves += 1
+  evaluateBoard(gameBoard)
 }
 
 const onClearBoard = function () {
