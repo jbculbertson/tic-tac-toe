@@ -3,7 +3,7 @@ const store = require('../store')
 
 const signUpSuccess = (data) => {
   store.user = data.user
-  $('#message-banner').text('Thanks for signing up ' + store.user.email)
+  $('#message-banner').text('Thanks for signing up ' + store.user.email + '.  Please login.')
 }
 const signUpFailure = () => {
   $('#message-banner').text('We may already have an account with that email')
@@ -11,55 +11,54 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   store.user = data.user
-  $('#message-banner').text('Welcome back ' + store.user.email)
-  $('#create-game').css('display', 'block')
-  $('#sign-out').css('display', 'block')
-  $('#show-games').css('display', 'block')
-  $('#show-one-game').css('display', 'block')
+  $('#message-banner').text('Welcome back ' + store.user.email + '.  Please click Create Game.')
+  $('#create-game-button').css('display', 'inline')
+  $('#sign-out-button').css('display', 'inline')
+  $('#show-games-button').css('display', 'inline')
+  $('#change-password-button').css('display', 'inline')
+  $('#sign-up-button').hide()
+  $('#sign-in-button').hide()
 }
 const signInFailure = () => {
   $('#message-banner').text('Please make sure you have the correct credentials')
 }
 
 const signOutSuccess = () => {
+  $('#message-banner').text('See you next time')
 }
 const signOutFailure = () => {
 }
 
 const changePasswordSuccess = () => {
+  $('#message-banner').text('Successfully changed password')
 }
 const changePasswordFailure = () => {
+  $('#message-banner').text('Incorrect credentials')
 }
 
 const createGameSuccess = (data) => {
   store.game = data.game
-  $('.gameboard').css('display', 'block')
-  $('#join-game').css('display', 'block')
-  $('.clear-board').css('display', 'block')
+  $('#message-banner').text('Let\'s Play!')
+  $('.gameboard').css('display', 'inline')
+  $('.clear-board-button').css('display', 'inline')
 }
-const createGameFailure = (error) => {
-  console.error(error)
+const createGameFailure = () => {
 }
 
 const showGamesSuccess = (data) => {
   $('#message-banner').text('Total number of games played is: ' + data.games.length)
 }
-const showGamesFailure = (error) => {
-  console.error(error)
+const showGamesFailure = () => {
 }
 
-const showOneGameSuccess = (data) => {
-  console.log(data)
+const showOneGameSuccess = () => {
 }
-const showOneGameFailure = (error) => {
-  console.error(error)
+const showOneGameFailure = () => {
 }
 
-const joinGameSuccess = (data) => {
-  console.log(data)
+const joinGameSuccess = () => {
 }
-const joinGameFailure = (error) => {
-  console.error(error)
+const joinGameFailure = () => {
 }
 
 module.exports = {

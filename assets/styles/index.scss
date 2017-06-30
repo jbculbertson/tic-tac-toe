@@ -1,57 +1,63 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 body {
-  max-width: 700px;
+  max-width: 600px;
+}
+
+button {
+  border: 1px solid #000;
+}
+
+input {
+  border: 1px solid #000;
 }
 
 .box {
-  border: 1px solid black;
-  font-size: 48px;
+  border: 1px solid #000;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 60px;
   height: 100px;
   padding: 10px;
   text-align: center;
 }
 
-#message-banner {
-  font-size: 36px;
-  max-width: 700px;
-}
-
 .gameboard {
   display: none;
-  margin-bottom: 10px;
-  margin-top: 50px;
 }
 
-button {
-  border: 1px solid black;
-}
-
-form {
-  border: 1px solid black;
-}
-
-input {
-  border: 1px solid black;
-}
-
-#sign-out {
+#clear-board-button {
   display: none;
 }
 
-#change-password {
+#sign-out-button {
   display: none;
 }
 
-#create-game {
+#sign-in-button {
+  display: inline;
+}
+
+#sign-up-button {
+  display: inline;
+}
+
+#change-password-button {
   display: none;
 }
 
-#show-games {
+#create-game-button {
   display: none;
 }
 
+#show-games-button {
+  display: none;
+}
+
+#message-banner {
+  font-size: 36px;
+}
 // #show-one-game {
 //   display: none;
 // }
@@ -60,13 +66,9 @@ input {
 //   display: none;
 // }
 
-.clear-board {
-  display: none;
-}
-
 @media (max-width: 400px) {
   .box {
-    border: 1px solid black;
+    border: 1px solid #000;
     font-size: 24px;
     height: 50;
     padding: 10px;

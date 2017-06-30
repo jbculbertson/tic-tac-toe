@@ -13,75 +13,243 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 <body class="container-fluid">
-<br>
-  <form id="sign-up">
-    <fieldset>
-      <legend>Sign up</legend>
-      <input type="email" name="credentials[email]" value="" placeholder="abc@example.com">
-      <input type="password" name="credentials[password]" value="" placeholder="password">
-      <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
-      <input type="submit" name="submit" value="Sign up!">
-    </fieldset>
-  </form>
-  <br>
+  <header>
 
-  <form id="sign-in">
-    <fieldset>
-      <legend>Sign in</legend>
-      <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
-      <input type="password" name="credentials[password]" value="" placeholder="password">
-      <input type="submit" name="submit" value="Sign in!">
-    </fieldset>
-  </form>
-  <br>
-  <form id="sign-out">
-    <fieldset>
-      <legend>Sign out</legend>
-      <input type="submit" name="submit" value="Sign out!">
-    </fieldset>
-  </form>
-  <br>
-  <form id="change-password">
-    <fieldset>
-      <legend>Change Password</legend>
-      <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-      <input type="password" name="passwords[new]" value="" placeholder="New Password">
-      <input type="submit" name="submit" value="Change Password">
-    </fieldset>
-  </form>
-  <br>
-  <br>
-  <form id="create-game">
-    <fieldset>
-      <legend>Start a New Game</legend>
-      <input type="submit" name="create-game" value="Submit">
-    </fieldset>
-  </form>
-  <br>
-  <form id="show-games">
-    <fieldset>
-      <legend>Show Games</legend>
-      <input type="submit" name="show-games" value="Submit">
-    </fieldset>
-  </form>
-  <!-- <form id="show-one-game">
-    <fieldset>
-      <legend>Show a Specific Game</legend>
-      <input type="text" name="game[id]" value="" placeholder="Game ID">
-      <input type="submit" name="show-games" value="Submit">
-    </fieldset>
-  </form>
-  <form id="join-game">
-    <fieldset>
-      <legend>Join Game</legend>
-      <input type="submit" name="join-game" value="Submit">
-    </fieldset>
-  </form> -->
-  <br>
-  <div id='message-banner'>
-    <p>Who will win this game!!</p>
-  </div>
-  <br>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-Modal" id="sign-up-button">
+      Sign Up
+    </button>
+    <div class="modal fade" id="sign-up-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-up">
+                <input type="email" name="credentials[email]" value="" placeholder="abc@example.com">
+                <input type="password" name="credentials[password]" value="" placeholder="password">
+                <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+                <input type="submit" name="submit" value="Sign up!">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-Modal" id="sign-in-button">
+      Sign In
+    </button>
+    <div class="modal fade" id="sign-in-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-in">
+                <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+                <input type="password" name="credentials[password]" value="" placeholder="password">
+                <input type="submit" name="submit" value="Sign in!">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password-Modal" id="change-password-button">
+      Change Password
+    </button>
+    <div class="modal fade" id="change-password-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="change-password">
+              <fieldset>
+                <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+                <input type="password" name="passwords[new]" value="" placeholder="New Password">
+                <input type="submit" name="submit" value="Change Password">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#show-games-Modal" id="show-games-button">
+      Show Games
+    </button>
+    <div class="modal fade" id="show-games-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Show Games</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="show-games">
+              <fieldset>
+                <input type="submit" name="show-games" value="Show Games">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-out-Modal" id="sign-out-button">
+      Sign Out
+    </button>
+    <div class="modal fade" id="sign-out-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sign Out</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="sign-out">
+              <fieldset>
+                <input type="submit" name="submit" value="Sign out!">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-game-Modal" id="create-game-button">
+      Create Game
+    </button>
+    <div class="modal fade" id="create-game-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Create Game</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="create-game">
+              <fieldset>
+                <input type="submit" name="create-game" value="Start a New Game">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clear-board-Modal" id="clear-board-button">
+      Clear Board
+    </button>
+    <div class="modal fade" id="clear-board-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Clear Board</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-xs-12">
+              <button class='clear-board'>Clear Board</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="header_row_1">
+      <div class="col-xs-4">
+        <form id="sign-up">
+          <fieldset>
+            <input type="email" name="credentials[email]" value="" placeholder="abc@example.com">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+            <input type="submit" name="submit" value="Sign up!">
+          </fieldset>
+        </form>
+        <br>
+      </div>
+      <div class="col-xs-4">
+        <form id="sign-in">
+          <fieldset>
+            <input type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="submit" name="submit" value="Sign in!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-xs-4">
+        <form id="change-password">
+          <fieldset>
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" value="Change Password">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="header_row_2">
+      <div class="col-xs-3">
+        <form id="sign-out">
+          <fieldset>
+            <input type="submit" name="submit" value="Sign out!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-xs-3">
+        <form id="create-game">
+          <fieldset>
+            <input type="submit" name="create-game" value="Start a New Game">
+          </fieldset>
+        </form>
+      </div>
+      <div class="col-xs-3">
+        <form id="show-games">
+          <fieldset>
+            <input type="submit" name="show-games" value="Show Games">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <div class="row_clear">
+      <div class="col-xs-12">
+        <button class='clear-board'>Clear Board</button>
+      </div>
+    </div> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row_banner">
+      <div class="col-xs-12">
+        <div id='message-banner'>
+          <p>Welcome to the worlds greatest TicTacToe game</p>
+        </div>
+      </div>
+    </div>
+  </header>
   <div class='gameboard'>
     <div id="row1">
       <div class="col-xs-4 box" id='0' data-id=0></div>
@@ -99,7 +267,5 @@
       <div class="col-xs-4 box" id='8' data-id=8></div>
     </div>
   </div>
-  <button class='clear-board'>Clear Board</button>
 </body>
-
 </html>
