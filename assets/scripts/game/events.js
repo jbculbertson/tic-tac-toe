@@ -66,7 +66,6 @@ let gameOver = false
 let turn = ''
 
 const whoseTurn = function (num) {
-  console.log('in whoseturn, total moves = ', totalMoves)
   if (num % 2 === 0) {
     turn = 'X'
   } else {
@@ -148,6 +147,7 @@ const onClearBoard = function () {
   $('#6').on('click', onSelectCell).text('')
   $('#7').on('click', onSelectCell).text('')
   $('#8').on('click', onSelectCell).text('')
+  api.createGame()
 }
 
 module.exports = {
