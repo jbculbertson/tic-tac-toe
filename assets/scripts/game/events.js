@@ -3,7 +3,6 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -19,6 +18,14 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+}
+
+const onCreateGame = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.createGame(data)
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
 }
 
 const onChangePassword = function (event) {
@@ -37,36 +44,12 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onCreateGame = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.createGame(data)
-    .then(ui.createGameSuccess)
-    .catch(ui.createGameFailure)
-}
-
 const onShowGames = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
   api.showGames(data)
     .then(ui.showGamesSuccess)
     .catch(ui.showGamesFailure)
-}
-
-const onShowOneGame = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.showOneGame(data)
-    .then(ui.showOneGameSuccess)
-    .catch(ui.showOneGameFailure)
-}
-
-const onJoinGame = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.joinGame(data)
-    .then(ui.joinGameSuccess)
-    .catch(ui.joinGameFailure)
 }
 
 const updateGame = function (data) {
@@ -80,43 +63,47 @@ let gameBoard = []
 let totalMoves = 0
 let winner = ''
 let gameOver = false
+let turn = ''
 
-const whoseTurn = function (array) {
-  if (totalMoves % 2 === 0) {
-    return 'X'
+const whoseTurn = function (num) {
+  console.log('in whoseturn, total moves = ', totalMoves)
+  if (num % 2 === 0) {
+    turn = 'X'
   } else {
-    return 'O'
+    turn = 'O'
   }
 }
-const evaluateBoard = function () {
-  if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
-    (gameBoard[3] === 'X' && gameBoard[4] === 'X' && gameBoard[5] === 'X') ||
-    (gameBoard[6] === 'X' && gameBoard[7] === 'X' && gameBoard[8] === 'X') ||
-    (gameBoard[0] === 'X' && gameBoard[3] === 'X' && gameBoard[6] === 'X') ||
-    (gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X') ||
-    (gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X') ||
-    (gameBoard[0] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X') ||
-    (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')) {
+
+const evaluateBoard = function (array) {
+  if ((array[0] === 'X' && array[1] === 'X' && array[2] === 'X') ||
+    (array[3] === 'X' && array[4] === 'X' && array[5] === 'X') ||
+    (array[6] === 'X' && array[7] === 'X' && array[8] === 'X') ||
+    (array[0] === 'X' && array[3] === 'X' && array[6] === 'X') ||
+    (array[1] === 'X' && array[4] === 'X' && array[7] === 'X') ||
+    (array[2] === 'X' && array[5] === 'X' && array[8] === 'X') ||
+    (array[0] === 'X' && array[4] === 'X' && array[8] === 'X') ||
+    (array[2] === 'X' && array[4] === 'X' && array[6] === 'X')) {
     winner = 'X'
     $('.box').off()
     $('#message-banner').text(winner + ' is the winner!')
     totalMoves = 0
     gameOver = true
-  } else if ((gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O') ||
-    (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O') ||
-    (gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
-    (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O') ||
-    (gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O') ||
-    (gameBoard[0] === 'O' && gameBoard[3] === 'O' && gameBoard[6] === 'O') ||
-    (gameBoard[1] === 'O' && gameBoard[4] === 'O' && gameBoard[7] === 'O') ||
-    (gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O')) {
+  } else if ((array[0] === 'O' && array[4] === 'O' && array[8] === 'O') ||
+    (array[2] === 'O' && array[4] === 'O' && array[6] === 'O') ||
+    (array[0] === 'O' && array[1] === 'O' && array[2] === 'O') ||
+    (array[3] === 'O' && array[4] === 'O' && array[5] === 'O') ||
+    (array[6] === 'O' && array[7] === 'O' && array[8] === 'O') ||
+    (array[0] === 'O' && array[3] === 'O' && array[6] === 'O') ||
+    (array[1] === 'O' && array[4] === 'O' && array[7] === 'O') ||
+    (array[2] === 'O' && array[5] === 'O' && array[8] === 'O')) {
     winner = 'O'
     $('.box').off()
     $('#message-banner').text(winner + ' is the winner!')
     totalMoves = 0
     gameOver = true
-  } else if (totalMoves > 8) {
+  } else if (totalMoves >= 8) {
     $('#message-banner').text('Game ends in a tie!')
+    $('.box').off()
     totalMoves = 0
     gameOver = true
   } else {
@@ -125,8 +112,15 @@ const evaluateBoard = function () {
 }
 
 const onSelectCell = function (event) {
+  $('#message-banner').text('Lets play')
+  $(this).off()
+  whoseTurn(totalMoves)
+  $(this).text(turn)
+  gameBoard[this.dataset.id] = turn
+  evaluateBoard(gameBoard)
+  totalMoves++
   const index = this.dataset.id
-  const value = whoseTurn()
+  const value = turn
   const isOver = gameOver
   const data = {
     "game": {
@@ -138,15 +132,10 @@ const onSelectCell = function (event) {
     }
   }
   updateGame(data)
-  $('#message-banner').text('Lets play')
-  $(this).text(whoseTurn())
-  $(this).off()
-  gameBoard[this.dataset.id] = whoseTurn()
-  totalMoves += 1
-  evaluateBoard(gameBoard)
 }
 
 const onClearBoard = function () {
+  $('.box').off()
   gameBoard = []
   totalMoves = 0
   gameOver = false
@@ -168,9 +157,7 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onShowGames,
-  onShowOneGame,
   onSelectCell,
   onClearBoard,
-  onJoinGame,
   updateGame
 }
