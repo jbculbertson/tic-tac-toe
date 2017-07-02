@@ -134,19 +134,20 @@ const onSelectCell = function (event) {
 }
 
 const onClearBoard = function () {
-  $('.box').off()
+  // $('.box').css('border', '1px solid black')
   gameBoard = []
   totalMoves = 0
   gameOver = false
-  $('#0').on('click', onSelectCell).text('')
-  $('#1').on('click', onSelectCell).text('')
-  $('#2').on('click', onSelectCell).text('')
-  $('#3').on('click', onSelectCell).text('')
-  $('#4').on('click', onSelectCell).text('')
-  $('#5').on('click', onSelectCell).text('')
-  $('#6').on('click', onSelectCell).text('')
-  $('#7').on('click', onSelectCell).text('')
-  $('#8').on('click', onSelectCell).text('')
+  $('.box').text('')
+  $('#0').on('click', onSelectCell)
+  $('#1').on('click', onSelectCell)
+  $('#2').on('click', onSelectCell)
+  $('#3').on('click', onSelectCell)
+  $('#4').on('click', onSelectCell)
+  $('#5').on('click', onSelectCell)
+  $('#6').on('click', onSelectCell)
+  $('#7').on('click', onSelectCell)
+  $('#8').on('click', onSelectCell)
   api.createGame()
 }
 
