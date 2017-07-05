@@ -47,7 +47,7 @@ const createGameFailure = () => {
 }
 
 const showGamesSuccess = (data) => {
-  $('#stats-banner').text('You have played ' + data.games.length + ' games.')
+  $('#message-banner').text('You have played ' + data.games.length + ' games.')
 }
 const showGamesFailure = () => {
 }
