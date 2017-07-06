@@ -39,15 +39,16 @@ const changePasswordFailure = () => {
 const createGameSuccess = (data) => {
   store.game = data.game
   $('#message-banner').text('Let\'s Play!')
+  $('#stats-banner').css('display', 'inline')
+  $('#stats-banner').text('Stats go here')
   $('.gameboard').fadeIn(500).css('display', 'inline')
-  // $('#clear-board-button').css('display', 'inline')
-  // $('#create-game-button').hide()
 }
+
 const createGameFailure = () => {
 }
 
 const showGamesSuccess = (data) => {
-  $('#message-banner').text('Total number of games played is: ' + data.games.length)
+  $('#stats-banner').text('You\'ve played ' + data.games.length + ' games.')
 }
 const showGamesFailure = () => {
 }

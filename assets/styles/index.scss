@@ -6,9 +6,9 @@ body {
   max-width: 600px;
 }
 
-// header {
-//   background-color: grey;
-// }
+.container-fluid {
+  background-image: url("http://wallpapercave.com/wp/JzfvVHJ.jpg")
+}
 
 button {
   border: 1px solid #000;
@@ -20,11 +20,13 @@ input {
 
 #message-banner {
   text-align: center;
+    color: white;
 }
 
 .box {
-  border: 1px solid #000;
+  border: 1px solid white;
   font-family: 'Permanent Marker', cursive;
+  color: white;
   font-size: 60px;
   height: 100px;
   padding: 10px;
@@ -32,7 +34,7 @@ input {
 }
 
 .box:hover {
-  border: 4px solid #000;
+  border: 4px solid white;
 }
 
 .gameboard {
@@ -69,6 +71,13 @@ input {
 
 #message-banner {
   font-size: 36px;
+  max-width: 300px;
+}
+
+#stats-banner {
+  font-size: 18px;
+  display: none;
+  color: white;
 }
 
 @media (max-width: 400px) {
@@ -78,5 +87,10 @@ input {
     height: 50;
     padding: 10px;
     text-align: center;
+  }
+
+  #message-banner {
+    font-size: 16px;
+    min-width: 200px;
   }
 }

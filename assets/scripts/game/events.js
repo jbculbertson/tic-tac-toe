@@ -147,23 +147,6 @@ const onSelectCell = function (event) {
   }
   updateGame(data)
 }
-//
-// const onClearBoard = function () {
-//   gameBoard = []
-//   totalMoves = 0
-//   gameOver = false
-//   $('.box').text('')
-//   $('#0').on('click', onSelectCell)
-//   $('#1').on('click', onSelectCell)
-//   $('#2').on('click', onSelectCell)
-//   $('#3').on('click', onSelectCell)
-//   $('#4').on('click', onSelectCell)
-//   $('#5').on('click', onSelectCell)
-//   $('#6').on('click', onSelectCell)
-//   $('#7').on('click', onSelectCell)
-//   $('#8').on('click', onSelectCell)
-//   api.createGame()
-// }
 
 module.exports = {
   onSignUp,
@@ -173,6 +156,5 @@ module.exports = {
   onCreateGame,
   onShowGames,
   onSelectCell,
-  // onClearBoard,
   updateGame
 }
