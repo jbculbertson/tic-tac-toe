@@ -40,14 +40,14 @@ const createGameSuccess = (data) => {
   store.game = data.game
   $('#message-banner').text('Let\'s Play!')
   $('.gameboard').fadeIn(500).css('display', 'inline')
-  $('#clear-board-button').css('display', 'inline')
-  $('#create-game-button').hide()
+  // $('#clear-board-button').css('display', 'inline')
+  // $('#create-game-button').hide()
 }
 const createGameFailure = () => {
 }
 
 const showGamesSuccess = (data) => {
-  $('#message-banner').text('You have played ' + data.games.length + ' games.')
+  $('#message-banner').text('Total number of games played is: ' + data.games.length)
 }
 const showGamesFailure = () => {
 }

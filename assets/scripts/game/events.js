@@ -23,6 +23,20 @@ const onSignIn = function (event) {
 const onCreateGame = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
+  $('.box').off()
+  gameBoard = []
+  totalMoves = 0
+  gameOver = false
+  $('.box').text('')
+  $('#0').on('click', onSelectCell)
+  $('#1').on('click', onSelectCell)
+  $('#2').on('click', onSelectCell)
+  $('#3').on('click', onSelectCell)
+  $('#4').on('click', onSelectCell)
+  $('#5').on('click', onSelectCell)
+  $('#6').on('click', onSelectCell)
+  $('#7').on('click', onSelectCell)
+  $('#8').on('click', onSelectCell)
   api.createGame(data)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -116,6 +130,7 @@ const onSelectCell = function (event) {
   whoseTurn(totalMoves)
   $(this).text(turn)
   gameBoard[this.dataset.id] = turn
+  console.log(totalMoves)
   evaluateBoard(gameBoard)
   totalMoves++
   const index = this.dataset.id
@@ -132,24 +147,23 @@ const onSelectCell = function (event) {
   }
   updateGame(data)
 }
-
-const onClearBoard = function () {
-  // $('.box').css('border', '1px solid black')
-  gameBoard = []
-  totalMoves = 0
-  gameOver = false
-  $('.box').text('')
-  $('#0').on('click', onSelectCell)
-  $('#1').on('click', onSelectCell)
-  $('#2').on('click', onSelectCell)
-  $('#3').on('click', onSelectCell)
-  $('#4').on('click', onSelectCell)
-  $('#5').on('click', onSelectCell)
-  $('#6').on('click', onSelectCell)
-  $('#7').on('click', onSelectCell)
-  $('#8').on('click', onSelectCell)
-  api.createGame()
-}
+//
+// const onClearBoard = function () {
+//   gameBoard = []
+//   totalMoves = 0
+//   gameOver = false
+//   $('.box').text('')
+//   $('#0').on('click', onSelectCell)
+//   $('#1').on('click', onSelectCell)
+//   $('#2').on('click', onSelectCell)
+//   $('#3').on('click', onSelectCell)
+//   $('#4').on('click', onSelectCell)
+//   $('#5').on('click', onSelectCell)
+//   $('#6').on('click', onSelectCell)
+//   $('#7').on('click', onSelectCell)
+//   $('#8').on('click', onSelectCell)
+//   api.createGame()
+// }
 
 module.exports = {
   onSignUp,
@@ -159,6 +173,6 @@ module.exports = {
   onCreateGame,
   onShowGames,
   onSelectCell,
-  onClearBoard,
+  // onClearBoard,
   updateGame
 }
