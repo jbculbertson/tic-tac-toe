@@ -12,10 +12,11 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
-<body class="container-fluid">
+<body class="container">
   <header>
-
-
+    <h1 class="title">Galactic Tac Toe</h1>
+    <div class="button-group">
+    <div class="logged-out">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-Modal" id="sign-up-button">
       Sign Up
     </button>
@@ -61,6 +62,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="logged-in">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password-Modal" id="change-password-button">
       Change Password
     </button>
@@ -92,7 +95,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Show Games</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Show Stats</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -151,7 +154,7 @@
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clear-board-Modal" id="clear-board-button">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clear-board-Modal" id="clear-board-button">
       Clear Board
     </button>
     <div class="modal fade" id="clear-board-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -170,34 +173,24 @@
           </div>
         </div>
       </div>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    </div> -->
+  </div>
+      </div>
+    </header>
     <div class="row_banner">
       <div class="col-xs-12">
         <div id='message-banner'>
-          <p>Welcome to the world's greatest TicTacToe game</p>
+          <p></p>
         </div>
       </div>
     </div>
     <div class="row_banner">
       <div class="col-xs-12">
         <div id='stats-banner'>
-          <p>Stats</p>
+          <p></p>
         </div>
       </div>
     </div>
-  </header>
   <div class='gameboard'>
     <div class="row">
       <div class="col-xs-4 box" id='0' data-id=0></div>

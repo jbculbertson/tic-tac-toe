@@ -2,31 +2,39 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
-body {
-  max-width: 600px;
+header {
+  background-color: rgba(211, 211, 211, .25);
+  height: 50px;
+  margin-bottom: 75px;
+  width: 100%;
 }
 
-.container-fluid {
-  background-image: url("http://wallpapercave.com/wp/JzfvVHJ.jpg")
+.container {
+  background-image: url("http://wallpapercave.com/wp/JzfvVHJ.jpg");
+  background-position: bottom;
+  padding: 0;
+  width: 100%;
 }
 
-button {
-  border: 1px solid #000;
+.button-group {
+  padding: 10px;
 }
 
-input {
-  border: 1px solid #000;
+.title {
+  color: white;
+  float: right;
+  font-family: 'Permanent Marker', cursive;
+  line-height: 15px;
 }
 
-#message-banner {
-  text-align: center;
-    color: white;
+.logged-in {
+  display: none;
 }
 
 .box {
-  border: 1px solid white;
-  font-family: 'Permanent Marker', cursive;
+  border: 0.5px solid white;
   color: white;
+  font-family: 'Permanent Marker', cursive;
   font-size: 60px;
   height: 100px;
   padding: 10px;
@@ -39,45 +47,30 @@ input {
 
 .gameboard {
   display: none;
-}
-
-#clear-board-button {
-  display: none;
-}
-
-#sign-out-button {
-  display: none;
-}
-
-#sign-in-button {
-  display: inline;
-}
-
-#sign-up-button {
-  display: inline;
-}
-
-#change-password-button {
-  display: none;
-}
-
-#create-game-button {
-  display: none;
-}
-
-#show-games-button {
-  display: none;
+  margin: 0 auto;
+  width: 400px;
 }
 
 #message-banner {
-  font-size: 36px;
-  max-width: 300px;
+  clear: both;
+  color: white;
+  font-size: 24px;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 600px;
+  text-align: center;
 }
 
 #stats-banner {
-  font-size: 18px;
-  display: none;
+  clear: both;
   color: white;
+  display: none;
+  font-size: 18px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  max-width: 600px;
+  text-align: center;
 }
 
 @media (max-width: 400px) {
