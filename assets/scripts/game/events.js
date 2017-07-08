@@ -157,7 +157,7 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateGame,
-  // onShowGames,
+  // onShowGames
   onSelectCell,
   updateGame
 }
