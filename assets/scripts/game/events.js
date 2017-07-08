@@ -40,6 +40,9 @@ const onCreateGame = function (event) {
   api.createGame(data)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
+  api.showGames(data)
+    .then(ui.showGamesSuccess)
+    .catch(ui.showGamesFailure)
 }
 
 const onChangePassword = function (event) {
@@ -58,13 +61,13 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onShowGames = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.showGames(data)
-    .then(ui.showGamesSuccess)
-    .catch(ui.showGamesFailure)
-}
+// const onShowGames = function (event) {
+//   const data = getFormFields(this)
+//   event.preventDefault()
+//   api.showGames(data)
+//     .then(ui.showGamesSuccess)
+//     .catch(ui.showGamesFailure)
+// }
 
 const updateGame = function (data) {
   event.preventDefault()
@@ -154,7 +157,7 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onShowGames,
+  // onShowGames,
   onSelectCell,
   updateGame
 }

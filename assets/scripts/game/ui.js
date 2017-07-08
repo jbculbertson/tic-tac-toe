@@ -36,7 +36,7 @@ const changePasswordFailure = () => {
 
 const createGameSuccess = (data) => {
   store.game = data.game
-  $('#message-banner').text('User ' + store.user.email + ' goes first, as X')
+  $('#message-banner').text('User ' + store.user.email + ' goes first, as X.')
   $('.gameboard').fadeIn(500).css('display', 'block')
 }
 
@@ -44,19 +44,47 @@ const createGameFailure = () => {
 }
 
 const showGamesSuccess = (data) => {
-  $('#stats-banner').text('You\'ve played ' + data.games.length + ' games.')
+  const evaluateBoard = function (array) {
+    if ((array[0] === 'X' && array[1] === 'X' && array[2] === 'X') ||
+      (array[3] === 'X' && array[4] === 'X' && array[5] === 'X') ||
+      (array[6] === 'X' && array[7] === 'X' && array[8] === 'X') ||
+      (array[0] === 'X' && array[3] === 'X' && array[6] === 'X') ||
+      (array[1] === 'X' && array[4] === 'X' && array[7] === 'X') ||
+      (array[2] === 'X' && array[5] === 'X' && array[8] === 'X') ||
+      (array[0] === 'X' && array[4] === 'X' && array[8] === 'X') ||
+      (array[2] === 'X' && array[4] === 'X' && array[6] === 'X')) {
+      return 'X'
+    } else if ((array[0] === 'O' && array[4] === 'O' && array[8] === 'O') ||
+      (array[2] === 'O' && array[4] === 'O' && array[6] === 'O') ||
+      (array[0] === 'O' && array[1] === 'O' && array[2] === 'O') ||
+      (array[3] === 'O' && array[4] === 'O' && array[5] === 'O') ||
+      (array[6] === 'O' && array[7] === 'O' && array[8] === 'O') ||
+      (array[0] === 'O' && array[3] === 'O' && array[6] === 'O') ||
+      (array[1] === 'O' && array[4] === 'O' && array[7] === 'O') ||
+      (array[2] === 'O' && array[5] === 'O' && array[8] === 'O')) {
+      return 'O'
+    } else {
+      return 'tie'
+    }
+  }
+
+  let wins = 0
+  let losses = 0
+  let ties = 0
+  const all = data.games.length
+
+  for (let i = 0; i < all; i++) {
+    if (evaluateBoard(data.games[i].cells) === 'X') {
+      wins++
+    } else if (evaluateBoard(data.games[i].cells) === 'O') {
+      losses++
+    } else {
+      ties++
+    }
+  }
+  $('#stats-banner').text('You\'ve played ' + data.games.length + ' games.  Your record is ' + wins + ' wins and ' + losses + ' losses.  And ' + ties + ' ties!.')
 }
 const showGamesFailure = () => {
-}
-
-const showOneGameSuccess = () => {
-}
-const showOneGameFailure = () => {
-}
-
-const joinGameSuccess = () => {
-}
-const joinGameFailure = () => {
 }
 
 module.exports = {
@@ -70,10 +98,6 @@ module.exports = {
   changePasswordFailure,
   showGamesFailure,
   showGamesSuccess,
-  showOneGameFailure,
-  showOneGameSuccess,
   createGameSuccess,
-  createGameFailure,
-  joinGameSuccess,
-  joinGameFailure
+  createGameFailure
 }
