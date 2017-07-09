@@ -20,6 +20,6 @@ $(() => {
   $('#sign-up').on('submit', gameEvents.onSignUp)
   $('#sign-in').on('submit', gameEvents.onSignIn)
   $('#change-password').on('submit', gameEvents.onChangePassword)
-  $('#signOut').on('submit', gameEvents.onSignOut)
+  $('#sign-out-button').on('click', gameEvents.onSignOut)
   $('#create-game-button').on('click', gameEvents.onCreateGame)
 })

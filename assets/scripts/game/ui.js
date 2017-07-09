@@ -24,6 +24,12 @@ const signInFailure = () => {
 }
 
 const signOutSuccess = () => {
+  $('.logged-in').css('display', 'none')
+  $('#sign-up-button').show()
+  $('#sign-in-button').show()
+  $('#message-banner').text('')
+  $('#stats-banner').text('')
+  $('.gameboard').fadeOut(500).css('display', 'none')
 }
 
 const signOutFailure = () => {

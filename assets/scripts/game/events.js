@@ -54,9 +54,8 @@ const onChangePassword = function (event) {
 }
 
 const onSignOut = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  api.signOut(data)
+  api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
@@ -125,7 +124,6 @@ const onSelectCell = function (event) {
   whoseTurn(totalMoves)
   $(this).text(turn)
   gameBoard[this.dataset.id] = turn
-  console.log(totalMoves)
   evaluateBoard(gameBoard)
   totalMoves++
   const index = this.dataset.id
