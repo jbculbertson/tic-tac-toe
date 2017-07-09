@@ -3,7 +3,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 header {
-  background-color: rgba(211, 211, 211, .25);
+  background-color: rgba(233, 233, 233, .5);
   height: 50px;
   margin-bottom: 75px;
   width: 100%;
@@ -24,7 +24,8 @@ header {
   color: white;
   float: right;
   font-family: 'Permanent Marker', cursive;
-  line-height: 15px;
+  line-height: 5px;
+  padding-right: 10px;
 }
 
 .logged-in {
@@ -51,6 +52,20 @@ header {
   width: 400px;
 }
 
+.made-by {
+  background-color: rgba(233, 233, 233, .5);
+  bottom: 0;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  height: 50px;
+  line-height: 45px;
+  padding-right: 10px;
+  position: fixed;
+  text-align: right;
+  width: 100%;
+}
+
 #message-banner {
   clear: both;
   color: white;
@@ -73,7 +88,7 @@ header {
   text-align: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 440px) {
   h1 {
     font-size: 20px;
   }

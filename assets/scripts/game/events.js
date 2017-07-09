@@ -61,14 +61,6 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// const onShowGames = function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.showGames(data)
-//     .then(ui.showGamesSuccess)
-//     .catch(ui.showGamesFailure)
-// }
-
 const updateGame = function (data) {
   event.preventDefault()
   api.updateGame(data)
@@ -157,7 +149,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateGame,
-  // onShowGames
   onSelectCell,
   updateGame
 }
