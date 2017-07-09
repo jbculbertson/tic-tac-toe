@@ -3,6 +3,7 @@ const store = require('../store')
 
 const signUpSuccess = (data) => {
   store.user = data.user
+  $('#sign-up-Modal').modal('hide')
   $('#message-banner').text('Thanks for signing up ' + store.user.email + '.  Please login.')
 }
 const signUpFailure = () => {
@@ -11,6 +12,7 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   store.user = data.user
+  $('#sign-in-Modal').modal('hide')
   $('#message-banner').text('Welcome back ' + store.user.email + '.  Please click Create Game.')
   $('.logged-in').css('display', 'inline')
   $('#sign-up-button').hide()
@@ -28,6 +30,7 @@ const signOutFailure = () => {
 }
 
 const changePasswordSuccess = () => {
+  $('#change-password-Modal').modal('hide')
   $('#message-banner').text('Successfully changed password')
 }
 const changePasswordFailure = () => {
@@ -36,6 +39,7 @@ const changePasswordFailure = () => {
 
 const createGameSuccess = (data) => {
   store.game = data.game
+  $('#create-game-Modal').modal('hide')
   $('#message-banner').text('User ' + store.user.email + ' goes first, as X.')
   $('.gameboard').fadeIn(500).css('display', 'block')
 }
