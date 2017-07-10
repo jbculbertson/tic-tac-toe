@@ -30,6 +30,8 @@ const signOutSuccess = () => {
   $('#message-banner').text('')
   $('#stats-banner').text('')
   $('.gameboard').fadeOut(500).css('display', 'none')
+  $('.sign-in').val('')
+  $('.sign-up').val('')
 }
 
 const signOutFailure = () => {
