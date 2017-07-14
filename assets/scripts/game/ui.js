@@ -18,6 +18,8 @@ const signInSuccess = (data) => {
   $('#sign-up-button').hide()
   $('#sign-in-button').hide()
   $('#stats-banner').css('display', 'block')
+  $('.box').text('')
+  $('.box').off()
 }
 const signInFailure = () => {
   $('#message-banner').text('Please make sure you have the correct credentials')
@@ -27,8 +29,10 @@ const signOutSuccess = () => {
   $('.logged-in').css('display', 'none')
   $('#sign-up-button').show()
   $('#sign-in-button').show()
-  $('#message-banner').text('')
   $('#stats-banner').text('')
+  // $('.box').text('')
+  // $('.box').off()
+  $('#message-banner').text('Thanks for playing, ' + store.user.email + '!')
   $('.gameboard').fadeOut(500).css('display', 'none')
   $('.sign-in').val('')
   $('.sign-up').val('')
