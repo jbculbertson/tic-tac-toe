@@ -36,9 +36,10 @@ header {
   color: white;
   font-family: 'Permanent Marker', cursive;
   font-size: 60px;
-  height: 100px;
+  height: 20vh;
   padding: 10px;
   text-align: center;
+  width: 33%;
 }
 
 .box:hover {
@@ -105,11 +106,18 @@ header {
   }
 
   .box {
-    border: 1px solid #000;
-    font-size: 24px;
-    height: 50;
+    border: 1px solid white;
+    font-size: 36px;
     padding: 10px;
     text-align: center;
+  }
+
+  .gameboard {
+    width: 250px;
+  }
+
+  .title {
+    display: none;
   }
 
   #message-banner {
