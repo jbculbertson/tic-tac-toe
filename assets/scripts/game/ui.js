@@ -8,6 +8,7 @@ const signUpSuccess = (data) => {
 }
 const signUpFailure = () => {
   $('#message-banner').text('We may already have an account with that email')
+  $('.sign-up').val('')
 }
 
 const signInSuccess = (data) => {
