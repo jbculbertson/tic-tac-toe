@@ -31,5 +31,5 @@ $(() => {
   $('#change-password').on('submit', gameEvents.onChangePassword)
   $('#sign-out-button').on('click', gameEvents.onSignOut)
   $('#create-game-button').on('click', gameEvents.onCreateGame)
-  $('#message-banner').text('Play a quick game.  Please login or create account in order to store stats')
+  $('#message-banner').text('Play a quick game!  Please login or create account in order to store data')
 })

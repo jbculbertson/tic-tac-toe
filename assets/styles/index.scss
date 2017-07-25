@@ -1,6 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
 header {
   background-color: rgba(233, 233, 233, .5);
@@ -50,6 +51,7 @@ header {
 .gameboard {
   // display: none;
   margin: 0 auto;
+  margin-bottom: 25px;
   width: 400px;
 }
 
@@ -70,24 +72,27 @@ header {
 #message-banner {
   clear: both;
   color: white;
+  font-family: 'Slabo 27px', serif;
   font-size: 24px;
   margin: 0 auto;
   margin-top: 50px;
+  max-width: 800px;
+  text-align: center;
+}
+
+#stats-banner, #stats-banner-two, #stats-banner-three, #stats-banner-four, #stats-banner-five {
+  clear: both;
+  color: white;
+  display: none;
+  font-family: 'Slabo 27px', serif;
+  font-size: 18px;
+  height: 0;
+  margin: 0 auto;
+  margin-bottom: 25px;
   max-width: 600px;
   text-align: center;
 }
 
-#stats-banner {
-  clear: both;
-  color: white;
-  display: none;
-  font-size: 18px;
-  margin: 0 auto;
-  margin-bottom: 25px;
-  margin-top: 25px;
-  max-width: 600px;
-  text-align: center;
-}
 
 .stats-board {
   clear: both;

@@ -21,10 +21,16 @@ const signInSuccess = (data) => {
   $('#sign-up-button').hide()
   $('#sign-in-button').hide()
   $('#stats-banner').css('display', 'block')
+  $('#stats-banner-two').css('display', 'block')
+  $('#stats-banner-three').css('display', 'block')
+  $('#stats-banner-four').css('display', 'block')
+  $('#stats-banner-five').css('display', 'block')
   $('.box').text('')
   $('.box').off()
 }
 const signInFailure = () => {
+  $('#sign-in-Modal').modal('hide')
+  $('.sign-in').val('')
   $('#message-banner').text('Please make sure you have the correct credentials')
 }
 
@@ -35,7 +41,7 @@ const signOutSuccess = () => {
   $('#stats-banner').text('')
   // $('.box').text('')
   // $('.box').off()
-  $('#message-banner').text('Thanks for playing, ' + store.user.email + '!')
+  $('#message-banner').text('Thanks for playing!')
   $('.gameboard').fadeOut(500).css('display', 'none')
   $('.sign-in').val('')
   $('.sign-up').val('')
@@ -101,7 +107,11 @@ const showGamesSuccess = (data) => {
       ties++
     }
   }
-  $('#stats-banner').text('You\'ve played ' + data.games.length + ' games.  Your record is ' + wins + ' wins and ' + losses + ' losses.  And ' + ties + ' ties!.')
+  $('#stats-banner').text('You\'ve played ' + data.games.length + ' games.')
+  $('#stats-banner-two').text('You have ' + wins + ' wins!')
+  $('#stats-banner-three').text('You have ' + losses + ' losses.')
+  $('#stats-banner-four').text('And ' + ties + ' ties!')
+  $('#stats-banner-gve').text('You have ' + wins + ' wins!')
 }
 const showGamesFailure = () => {
 }
