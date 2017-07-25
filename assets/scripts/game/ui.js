@@ -3,16 +3,18 @@ const store = require('../store')
 
 const signUpSuccess = (data) => {
   store.user = data.user
-  $('#sign-up-Modal').modal('hide')
-  $('#message-banner').text('Thanks for signing up ' + store.user.email + '.  Please login.')
+  // $('#sign-up-Modal').modal('hide')
+  // $('#message-banner').text('Thanks for signing up ' + store.user.email + '.  Please login.')
 }
 const signUpFailure = () => {
   $('#message-banner').text('We may already have an account with that email')
   $('.sign-up').val('')
+  $('#sign-up-Modal').modal('hide')
 }
 
 const signInSuccess = (data) => {
   store.user = data.user
+  $('#sign-up-Modal').modal('hide')
   $('#sign-in-Modal').modal('hide')
   $('#message-banner').text('Welcome back ' + store.user.email + '.  Please click Create Game.')
   $('.logged-in').css('display', 'inline')
