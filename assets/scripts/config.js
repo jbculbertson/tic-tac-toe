@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://aqueous-atoll-85096.herokuapp.com/',
+    production: 'https://git.heroku.com/stormy-springs-72072.git',
     development: 'http://tic-tac-toe.wdibos.com'
   }
 }
