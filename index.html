@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class = "container">
+  <header>
+    <h1 class="title">Galactic Tac Toe</h1>
+    <div class="button-group">
+      <div class="logged-out">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-up-Modal" id="sign-up-button">
+      Sign Up
+    </button>
+        <div class="modal fade" id="sign-up-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+              </div>
+              <div class="modal-body">
+                <form id="sign-up">
+                  <input class="sign-up" type="email" name="credentials[email]" value="" placeholder="abc@example.com">
+                  <input class="sign-up"type="password" name="credentials[password]" value="" placeholder="password">
+                  <input class="sign-up" type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+                  <input type="submit" name="submit" value="Sign up!">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-Modal" id="sign-in-button">
+      Sign In
+    </button>
+        <div class="modal fade" id="sign-in-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+              </div>
+              <div class="modal-body">
+                <form id="sign-in">
+                  <input class="sign-in" type="text" name="credentials[email]" value="" placeholder="abc@example.com">
+                  <input class="sign-in" type="password" name="credentials[password]" value="" placeholder="password">
+                  <input type="submit" name="submit" value="Sign in!">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="logged-in">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#change-password-Modal" id="change-password-button">
+      Change Password
+    </button>
+        <div class="modal fade" id="change-password-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                  <fieldset>
+                    <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+                    <input type="password" name="passwords[new]" value="" placeholder="New Password">
+                    <input type="submit" name="submit" value="Change Password">
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-out-Modal" id="sign-out-button">
+      Sign Out
+    </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-game-Modal" id="create-game-button">
+      Create Game
+    </button>
+      </div>
+    </div>
+  </header>
+  <div class="row_banner">
+    <div class="col-xs-12">
+      <div id='message-banner'>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="stats_section">
+    <div class="col-xs-12">
+      <div id='stats-banner'>
+        <p></p>
+      </div>
+      <div id='stats-banner-two'>
+        <p></p>
+      </div>
+      <div id='stats-banner-three'>
+        <p></p>
+      </div>
+      <div id='stats-banner-four'>
+        <p></p>
+      </div>
+      <div id='stats-banner-five'>
+        <p></p>
+      </div>
+    </div>
+  </div>
+    <div class='gameboard'>
+      <div class="row">
+        <div class="col-xs-4 box" id='0' data-id=0></div>
+        <div class="col-xs-4 box" id='1' data-id=1></div>
+        <div class="col-xs-4 box" id='2' data-id=2></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 box" id='3' data-id=3></div>
+        <div class="col-xs-4 box" id='4' data-id=4></div>
+        <div class="col-xs-4 box" id='5' data-id=5></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 box" id='6' data-id=6></div>
+        <div class="col-xs-4 box" id='7' data-id=7></div>
+        <div class="col-xs-4 box" id='8' data-id=8></div>
+      </div>
+    </div>
+    <footer>
+      <div class="made-by">
+        <p>Created by Jeff Culbertson &copy; 2017</p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
